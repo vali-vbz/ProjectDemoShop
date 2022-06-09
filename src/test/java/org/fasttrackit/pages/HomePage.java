@@ -32,7 +32,7 @@ public class HomePage extends PageObject {
         clickOn(searchIcon);
     }
 
-    public void navigateCart(){
+    public void navigateLanguage(){
         waitFor(langDropdown);
         clickOn(langDropdown);
     }

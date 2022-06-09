@@ -22,7 +22,30 @@ public class SearchSteps extends ScenarioSteps {
     }
 
     @Step
-    public void sortProducts(){
-
+    public void sortProducts(String sortType){
+        searchResultsPage.clickSortBy(sortType);
     }
+
+    @Step
+    public void getPrices(){
+        System.out.println( searchResultsPage.getPrices() );
+        searchResultsPage.getPrices();
+    }
+
+    @Step
+    public float getFirstPrice(){
+        return searchResultsPage.getPrices().get(0).intValue();
+    }
+
+    @Step
+    public float getLastPrice(){
+        return searchResultsPage.getPrices().get(searchResultsPage.getPrices().size()-1).intValue();
+    }
+    @Step
+    public void verifyPriceOrder(){
+        Assert.assertTrue(searchResultsPage.checkPricesAscending(getFirstPrice(),getLastPrice()) );
+    }
+
+
+//end
 }

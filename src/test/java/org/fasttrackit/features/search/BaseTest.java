@@ -26,9 +26,17 @@ public class BaseTest {
     @Steps
     protected CartSteps cartSteps;
 
-    @Before
-    public void maximize(){
-        webDriver.manage().window().maximize();
-    }
+//    @Before
+//    public void maximize(){
+//        webDriver.manage().window().maximize();
+//    }
 
+    public static void wait(int ms){
+        try {
+            Thread.sleep(ms);
+            System.out.println(""+ (float)(ms/1000) +"? I waited long enough !"); // help_observe
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 }
