@@ -1,11 +1,16 @@
 package org.fasttrackit.features.search;
 
 import org.fasttrackit.utils.*;
-import org.junit.Test;
+import org.junit.*;
 
 
 public class LoginTests extends BaseTest{
 
+    @Test
+    public void openHomePageTest(){
+        loginSteps.navigateToHomepage();
+//        Assert.assertTrue();
+    }
 
     @Test
     public void loginWithValidCredentialsTest(){

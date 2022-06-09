@@ -5,15 +5,19 @@ import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 
-@DefaultUrl("http://testfasttrackit.info/selenium-test/")
+@DefaultUrl("http://qa5.fasttrackit.org:8008/")
 public class HomePage extends PageObject {
 
-    @FindBy(css = ".skip-account .label")
+    @FindBy(id = "menu-item-70")
     private WebElementFacade accountLink;
-    @FindBy(css = "[title='Log In']")
+    @FindBy(css = ".login-woocommerce")
     private WebElementFacade loginLink;
-    @FindBy(id = "search")
+    @FindBy(css = "menu-item-72 ")  // #menu-a -toate butoanele
+    private WebElementFacade cartLink;
+    @FindBy(css = "div.search-form input.search-field")  // search bar up
     private WebElementFacade searchField;
+    @FindBy(css = "div.widget-area input.search-field")  // search side menu
+    private WebElementFacade searchField2;
     @FindBy(css = "[title='Search']")
     private WebElementFacade searchIcon;
     @FindBy(id="select-language")

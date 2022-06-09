@@ -3,11 +3,8 @@ package org.fasttrackit.features.search;
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
-import org.fasttrackit.steps.serenity.CartSteps;
-import org.fasttrackit.steps.serenity.LoginSteps;
-import org.fasttrackit.steps.serenity.ProductSteps;
-import org.fasttrackit.steps.serenity.SearchSteps;
-import org.junit.Before;
+import org.fasttrackit.steps.serenity.*;
+import org.junit.*;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
@@ -25,11 +22,20 @@ public class BaseTest {
     protected ProductSteps productSteps;
     @Steps
     protected CartSteps cartSteps;
+    @Steps
+    protected BaseSteps baseSteps;
 
 //    @Before
 //    public void maximize(){
 //        webDriver.manage().window().maximize();
 //    }
+
+    @Test
+    public void testPageOpened(){
+        baseSteps.navigateToHomepage();
+        Assert.assertTrue(baseSteps.expectedPageTitle("FastTrackIT – Just another WordPress site"));
+    }
+
 
     public static void wait(int ms){
         try {
@@ -39,4 +45,5 @@ public class BaseTest {
             e.printStackTrace();
         }
     }
+
 }
