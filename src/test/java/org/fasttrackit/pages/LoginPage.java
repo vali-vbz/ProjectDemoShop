@@ -6,11 +6,11 @@ import net.thucydides.core.pages.PageObject;
 
 public class LoginPage extends PageObject {
 
-    @FindBy(id = "email")
+    @FindBy(id = "username")
     private WebElementFacade emailField;
-    @FindBy(id = "pass")
+    @FindBy(id = "password")
     private WebElementFacade passwordField;
-    @FindBy(id = "send2")
+    @FindBy(css = "button[name=\"login\"]")
     private WebElementFacade loginButton;
 
     public void setEmailField(String email){

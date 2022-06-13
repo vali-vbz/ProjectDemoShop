@@ -9,17 +9,22 @@ import java.util.*;
 import java.util.concurrent.*;
 
 public class SearchResultsPage extends PageObject {
-
-    @FindBy(css = ".products-grid li.item")   /*elementul intreg din search*/
+/*
+* .products-grid li.item
+* .category-products > .toolbar select[title^=Sort]
+* .category-products > .toolbar select[title^=Sort] option
+* .price-box .regular-price .price, .price-box .special-price .price
+* */
+    @FindBy(css = "x")   /*elementul intreg din search*/
     private List<WebElementFacade> productsList;
 
-    @FindBy(css = ".category-products > .toolbar select[title^=Sort]")
+    @FindBy(css = "x")
     private WebElementFacade sortButton;
 
-    @FindBy(css = ".category-products > .toolbar select[title^=Sort] option")
+    @FindBy(css = "x")
     private List<WebElementFacade> sortByList;
 
-    @FindBy(css=".price-box .regular-price .price, .price-box .special-price .price")
+    @FindBy(css="x")
     private List<WebElementFacade> priceList;
 
     public boolean checkListForProduct(String productName){

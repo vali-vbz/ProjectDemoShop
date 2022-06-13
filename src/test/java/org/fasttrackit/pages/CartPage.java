@@ -6,7 +6,7 @@ import net.thucydides.core.pages.PageObject;
 
 public class CartPage extends PageObject {
 
-    @FindBy(css = ".success-msg span")
+    @FindBy(css = ".a")
     private WebElementFacade successMessage;
 
     public void verifySuccessMessage(String productName){

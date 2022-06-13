@@ -14,14 +14,15 @@ public class HomePage extends PageObject {
     private WebElementFacade loginLink;
     @FindBy(css = "menu-item-72 ")  // #menu-a -toate butoanele
     private WebElementFacade cartLink;
+
     @FindBy(css = "div.search-form input.search-field")  // search bar up
-    private WebElementFacade searchField;
+    private WebElementFacade searchField1;
     @FindBy(css = "div.widget-area input.search-field")  // search side menu
     private WebElementFacade searchField2;
-    @FindBy(css = "[title='Search']")
-    private WebElementFacade searchIcon;
-    @FindBy(id="select-language")
-    private WebElementFacade langDropdown;
+    @FindBy(css = "div.search-form .searchsubmit .fa-search")   // ex: [title='Search']
+    private WebElementFacade searchIcon1;
+    @FindBy(css="div.widget-area .searchsubmit .fa-search")
+    private WebElementFacade searchIcon2;
 
     public void clickAccountLink(){
         clickOn(accountLink);
@@ -30,14 +31,17 @@ public class HomePage extends PageObject {
         clickOn(loginLink);
     }
     public void setSearchField(String keyword){
-        typeInto(searchField, keyword);
+        typeInto(searchField1, keyword);
+    }
+    public void setSearchField2(String keyword){
+        typeInto(searchField2, keyword);
     }
     public void clickSearchIcon(){
-        clickOn(searchIcon);
+        clickOn(searchIcon1);
+    }
+    public void clickSearchIcon2(){
+        clickOn(searchIcon2);
     }
 
-    public void navigateLanguage(){
-        waitFor(langDropdown);
-        clickOn(langDropdown);
-    }
+
 }

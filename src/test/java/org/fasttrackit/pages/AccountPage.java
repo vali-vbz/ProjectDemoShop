@@ -6,7 +6,7 @@ import net.thucydides.core.pages.PageObject;
 
 public class AccountPage extends PageObject {
 
-    @FindBy(css = "p.hello strong")
+    @FindBy(css = "x")
     private WebElementFacade welcomeText;
 
     public void verifyWelcomeMessage(String userName){

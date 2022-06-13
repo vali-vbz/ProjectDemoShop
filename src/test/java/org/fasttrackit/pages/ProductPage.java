@@ -6,7 +6,7 @@ import net.thucydides.core.pages.PageObject;
 
 public class ProductPage extends PageObject {
 
-    @FindBy(css = ".add-to-cart-buttons .btn-cart")
+    @FindBy(css = ".a")
     private WebElementFacade addToCartButton;
 
     public void clickAddToCartButton(){
