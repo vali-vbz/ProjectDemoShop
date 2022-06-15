@@ -42,4 +42,26 @@ public class LoginSteps extends ScenarioSteps {
         setCredentials(email,password);
         clickLogin();
     }
+
+    @Step
+    public void clickOrdersButton(){
+        accountPage.clickOrdersButton();
+    }
+
+    @Step
+    public void verifyOrdersEmpty(){
+        accountPage.verifyOrdersEmpty();
+    }
+
+    @Step
+    public void verifyMenuOptionText(){
+        accountPage.verifyOrdersEmpty();
+    }
+
+    @Step
+    public void verifyOptionMenuSelected(String option){
+        accountPage.getOptionText();
+    }
+
+
 }
