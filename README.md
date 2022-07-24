@@ -14,4 +14,5 @@ Am construit o arhitectura de testare automată in Java, care ruleaza
 scripturi automate pentru a rula testele de regresie.
 
 Tehnologii folosite :
-Java, Selenium, JUnit, Serenity
+<ul><li>Java</li>, <li>Selenium</li> , JUnit 4.12, Serenity 2.4.4
+  </ul>
