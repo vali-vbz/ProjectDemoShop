@@ -18,7 +18,7 @@ public class SearchSteps extends ScenarioSteps {
     }
     @Step
     public void verifyProductInResults(String productName){
-        Assert.assertTrue(searchResultsPage.checkListForProduct(productName));
+        Assert.assertTrue("Product <"+productName + "> not found in search results!",searchResultsPage.checkListForProduct(productName));
     }
 
     @Step
@@ -28,7 +28,7 @@ public class SearchSteps extends ScenarioSteps {
 
     @Step
     public void getPrices(){
-        System.out.println( searchResultsPage.getPrices() );
+        System.out.println("Log: "+ searchResultsPage.getPrices() );
         searchResultsPage.getPrices();
     }
 

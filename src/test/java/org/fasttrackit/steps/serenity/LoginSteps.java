@@ -44,7 +44,7 @@ public class LoginSteps extends ScenarioSteps {
     }
 
     @Step
-    public void clickOrdersButton(){
+    public void clickOrders(){
         accountPage.clickOrdersButton();
     }
 
@@ -59,8 +59,21 @@ public class LoginSteps extends ScenarioSteps {
     }
 
     @Step
-    public void verifyOptionMenuSelected(String option){
-        accountPage.getOptionText();
+    public boolean verifyOptionMenuSelected(String option){
+        if (option.equalsIgnoreCase(accountPage.getOptionText()) )
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    @Step
+    public String getOptionMenuSelected(){
+        return accountPage.getOptionText();
     }
 
 

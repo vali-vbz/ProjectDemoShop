@@ -9,7 +9,5 @@ public class CartPage extends PageObject {
     @FindBy(css = ".a")
     private WebElementFacade successMessage;
 
-    public void verifySuccessMessage(String productName){
-        successMessage.shouldContainOnlyText(productName + " was added to your shopping cart.");
-    }
+
 }

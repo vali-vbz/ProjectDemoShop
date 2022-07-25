@@ -35,11 +35,11 @@ public class AccountPage extends PageObject {
     }
 
     public String getOptionText(){
-        return optionMessage.getText().toLowerCase();
+        return optionTitle.getText();
     }
 
     public void verifyMenuSelected(String menuSelected){
-        optionMessage.shouldContainText (menuSelected);
+        optionTitle.shouldContainText (menuSelected);
     }
 
 }

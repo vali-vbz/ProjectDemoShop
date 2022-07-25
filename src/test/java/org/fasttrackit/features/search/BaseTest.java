@@ -39,10 +39,10 @@ public class BaseTest {
 
 
     //''''
-    public static void wait(int ms){
+    public static void waitMe(int ms){
         try {
             Thread.sleep(ms);
-            System.out.println(""+ (float)(ms/1000) +"? I waited long enough !"); // help_observe
+            System.out.println("Run waited "+ (float)(ms/1000) +" min!"); // help_observe
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

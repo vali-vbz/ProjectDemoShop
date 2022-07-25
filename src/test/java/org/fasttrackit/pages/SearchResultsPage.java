@@ -15,34 +15,44 @@ public class SearchResultsPage extends PageObject {
 * .category-products > .toolbar select[title^=Sort] option
 * .price-box .regular-price .price, .price-box .special-price .price
 * */
-    @FindBy(css = "x")   /*elementul intreg din search*/
+    @FindBy(css = ".wc-products LI")
     private List<WebElementFacade> productsList;
 
-    @FindBy(css = "x")
+    @FindBy(css = "select.orderby")
     private WebElementFacade sortButton;
 
-    @FindBy(css = "x")
+    @FindBy(css = "select.orderby option")
     private List<WebElementFacade> sortByList;
 
-    @FindBy(css="x")
+    @FindBy(css=".price-cart .price span.amount")
     private List<WebElementFacade> priceList;
 
     public boolean checkListForProduct(String productName){
+        if (!productsList.isEmpty()) {
         for(WebElementFacade element : productsList){
-            if(element.findElement(By.cssSelector(".product-name a")).getText().equalsIgnoreCase(productName)){
+            if(element.findElement(By.cssSelector(".collection_title h3")).getText().equalsIgnoreCase(productName)){
                 System.out.println("log: Element gasit");
                 return true;
             }
         }
+        }
+        else {
+                return false;
+            }
         return false;
     }
     public void selectProductFromList(String product){
-        for(WebElementFacade element : productsList){
-            if(element.findElement(By.cssSelector(".product-name a")).getText().equalsIgnoreCase(product)){
-                element.findElement(By.cssSelector("a.product-image")).click();
-                break;
+        if (!productsList.isEmpty()) {
+            for (WebElementFacade element : productsList) {
+                if (element.findElement(By.cssSelector(".collection_title h3")).getText().equalsIgnoreCase(product)) {
+                    element.findElement(By.cssSelector(".collection_title h3")).click();
+                    break;
+                }
             }
         }
+        else{
+            System.out.println("Log: Productslist was not found !");
+            }
     }
 
 /*
@@ -54,7 +64,7 @@ public class SearchResultsPage extends PageObject {
     public void clickSortBy(String sortby) {
         clickOn(sortButton);
 
-        for(WebElementFacade element : productsList) {
+        for(WebElementFacade element : sortByList) {
             if(element.getText().equalsIgnoreCase(sortby)){
                 element.click();
                 break;
@@ -66,7 +76,7 @@ public class SearchResultsPage extends PageObject {
     public List<Float> getPrices(){
         List<Float> xText=new ArrayList<Float>();
         for(WebElementFacade element : priceList) {
-            xText.add(Float.valueOf(element.getText().replace(" RON","")));
+            xText.add(Float.valueOf(element.getText().replace("lei","").replace(".00","") ));
         }
 
 //        xText.get(0);

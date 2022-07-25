@@ -1,15 +1,21 @@
 package org.fasttrackit.features.search;
 
+import org.fasttrackit.utils.*;
 import org.junit.Test;
 
 public class CartTest extends BaseTest{
 
+    String textSearch="hoodie";
+    String textProductName="Hoodie with Logo";
+
     @Test
     public void addProductToCart(){
-        loginSteps.doLogin("cosmin@fasttrackit.org","123456");
-        searchSteps.doSearch("necklace");
-        productSteps.selectProductFromList("Silver Desert Necklace");
+        loginSteps.navigateToHomepage();
+//        loginSteps.setCredentials(Constants.USER_EMAIL,Constants.USER_PASS);
+//        loginSteps.clickLogin();
+        searchSteps.doSearch(textSearch);
+        productSteps.selectProductFromList(textProductName);
         cartSteps.clickAddToCart();
-        cartSteps.verifySuccessMessage("Silver Desert Necklace");
+        productSteps.verifySuccessMessage(textProductName);
     }
 }

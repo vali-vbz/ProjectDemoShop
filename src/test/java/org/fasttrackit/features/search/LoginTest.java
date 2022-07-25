@@ -16,8 +16,9 @@ public class LoginTest extends BaseTest{
     public void loginWithInvalidUserTest(){
         loginSteps.navigateToHomepage();
         loginSteps.navigateToLogin();
-        loginSteps.setCredentials("v999",Constants.USER_PASS);
+        loginSteps.setCredentials("999"+Constants.USER_EMAIL,Constants.USER_PASS);
         loginSteps.clickLogin();
+        loginSteps.verifyUsernameMessage(Constants.USER_NAME);
     }
 
     @Test
@@ -33,9 +34,9 @@ public class LoginTest extends BaseTest{
     public void loginWithInvalidPassTest(){
         loginSteps.navigateToHomepage();
         loginSteps.navigateToLogin();
-        loginSteps.setCredentials(Constants.USER_EMAIL,"wrongpass");
+        loginSteps.setCredentials(Constants.USER_EMAIL,Constants.USER_PASS+"wrongpass");
         loginSteps.clickLogin();
-
+        loginSteps.verifyUsernameMessage(Constants.USER_NAME);
     }
 
     @Test
@@ -45,8 +46,11 @@ public class LoginTest extends BaseTest{
         loginSteps.setCredentials(Constants.USER_EMAIL,Constants.USER_PASS);
         loginSteps.clickLogin();
 
-        loginSteps.clickOrdersButton();
-        wait(1500);
-        loginSteps.verifyOptionMenuSelected("orders");
+        loginSteps.clickOrders();
+
+        System.out.println("Log: click pe orders..");
+        waitMe(1300);
+
+        Assert.assertEquals("text Optiune Orders","Orders",loginSteps.getOptionMenuSelected() );
     }
 }
