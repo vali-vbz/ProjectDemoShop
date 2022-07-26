@@ -51,6 +51,7 @@ public class LoginTest extends BaseTest{
         System.out.println("Log: click pe orders..");
         waitMe(1300);
 
-        Assert.assertEquals("text Optiune Orders","Orders",loginSteps.getOptionMenuSelected() );
+        Assert.assertEquals("text Optiune Orders",("Orders").toUpperCase(),loginSteps.getOptionMenuSelected().toUpperCase() );
+        loginSteps.verifyOrdersEmpty();
     }
 }

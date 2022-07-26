@@ -11,10 +11,14 @@ public class AccountPage extends PageObject {
     @FindBy(css = ".woocommerce-MyAccount-content")
     private WebElementFacade welcomeText;
 
-    @FindBy(css=".woocommerce-MyAccount-navigation li:nth-child(2)")
+    @FindBy(css=".woocommerce-MyAccount-navigation li:nth-child(2)")   // .woocommerce-MyAccount-navigation-link--orders
     private WebElementFacade ordersButton;
 
-    @FindBy(css="woocommerce-MyAccount-content div")
+    @FindBy(linkText = "Orders")
+    private WebElementFacade ordersButton2;
+
+
+    @FindBy(css=".woocommerce-MyAccount-content div")
     private WebElementFacade optionMessage;
 
     @FindBy(css=".post-title")
@@ -27,6 +31,7 @@ public class AccountPage extends PageObject {
 
     public void clickOrdersButton(){
         clickOn(ordersButton);
+        clickOn(ordersButton2);
     }
 
     public void verifyOrdersEmpty(){
