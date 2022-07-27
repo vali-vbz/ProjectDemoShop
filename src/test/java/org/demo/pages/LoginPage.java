@@ -1,4 +1,4 @@
-package org.fasttrackit.pages;
+package org.demo.pages;
 
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
@@ -6,15 +6,19 @@ import net.thucydides.core.pages.PageObject;
 
 public class LoginPage extends PageObject {
 
-    @FindBy(id = "username")
-    private WebElementFacade emailField;
-    @FindBy(id = "password")
+    @FindBy(id = "loginusername")
+    private WebElementFacade userField;
+    @FindBy(id = "loginpassword")
     private WebElementFacade passwordField;
-    @FindBy(css = "button[name=\"login\"]")
+    @FindBy(css = "button[onclick^=logIn]")
     private WebElementFacade loginButton;
 
-    public void setEmailField(String email){
-        typeInto(emailField, email);
+    @FindBy(id="nameofuser")
+    private WebElementFacade nameOfUser;
+
+
+    public void setUserField(String user){
+        typeInto(userField, user);
     }
     public void setPasswordField(String password){
         typeInto(passwordField,password);
@@ -22,4 +26,8 @@ public class LoginPage extends PageObject {
     public void clickLoginButton(){
         clickOn(loginButton);
     }
+
+
+
+
 }

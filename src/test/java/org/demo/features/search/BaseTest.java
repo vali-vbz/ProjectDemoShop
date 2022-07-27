@@ -1,12 +1,12 @@
-package org.fasttrackit.features.search;
+package org.demo.features.search;
 
 import net.serenitybdd.junit.runners.SerenityRunner;
 import net.thucydides.core.annotations.Managed;
 import net.thucydides.core.annotations.Steps;
-import org.fasttrackit.steps.serenity.*;
+import org.demo.steps.serenity.*;
 import org.junit.*;
 import org.junit.runner.RunWith;
-import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.*;
 
 @RunWith(SerenityRunner.class)
 public class BaseTest {
@@ -16,25 +16,19 @@ public class BaseTest {
 
     @Steps
     protected LoginSteps loginSteps;
-    @Steps
-    protected SearchSteps searchSteps;
-    @Steps
-    protected ProductSteps productSteps;
+
     @Steps
     protected CartSteps cartSteps;
+
     @Steps
     protected BaseSteps baseSteps;
 
-//    @Before
-//    public void maximize(){
-//        webDriver.manage().window().maximize();
-//    }
-
-    @Test
-    public void testPageOpened(){
-        baseSteps.navigateToHomepage();
-        Assert.assertTrue(baseSteps.expectedPageTitle("FastTrackIT – Just another WordPress site"));
+    @Before
+    public void windowSize(){
+        webDriver.manage().window().setSize(new Dimension( 1150, 720));  // window().maximize();
     }
+
+
 
 
 
@@ -42,7 +36,7 @@ public class BaseTest {
     public static void waitMe(int ms){
         try {
             Thread.sleep(ms);
-            System.out.println("Run waited "+ (float)(ms/1000) +" min!"); // help_observe
+            //System.out.println("Run waited "+ (double)(ms/1000) +" sec!"); // help_observe
         } catch (InterruptedException e) {
             e.printStackTrace();
         }

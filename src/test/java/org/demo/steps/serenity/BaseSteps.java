@@ -1,8 +1,8 @@
-package org.fasttrackit.steps.serenity;
+package org.demo.steps.serenity;
 
 import net.thucydides.core.annotations.*;
 import net.thucydides.core.steps.*;
-import org.fasttrackit.pages.*;
+import org.demo.pages.*;
 
 public class BaseSteps extends ScenarioSteps {
 
@@ -23,6 +23,11 @@ public class BaseSteps extends ScenarioSteps {
         else{
             return false;
         }
+    }
+
+    @Step
+    public void openProduct(int prodNumber){
+        homePage.clickProduct(prodNumber);
     }
 
 }

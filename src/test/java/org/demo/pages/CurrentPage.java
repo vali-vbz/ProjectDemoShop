@@ -1,4 +1,4 @@
-package org.fasttrackit.pages;
+package org.demo.pages;
 
 import net.thucydides.core.pages.*;
 
